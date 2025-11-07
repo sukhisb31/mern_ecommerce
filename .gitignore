@@ -1,0 +1,20 @@
+# Ignore Node modules (both frontend & backend)
+Backend/node_modules/
+Frontend/node_modules/
+
+# Ignore environment files
+Backend/.env
+Frontend/.env
+
+# Optional: build folders
+Backend/dist/
+Frontend/build/
+
+# Logs
+Backend/logs/
+Frontend/logs/
+*.log
+
+# Optional: system files (mac/windows)
+.DS_Store
+Thumbs.db
