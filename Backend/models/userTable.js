@@ -8,9 +8,15 @@ export async function createUserTable () {
                 name VARCHAR(255) NOT NULL CHECK (char_length(name) >= 3),
                 email VARCHAR(255) UNIQUE NOT NULL,
                 password TEXT NOT NULL,
-                   
-            )
-        `
+                role VARCHAR(50) DEFAULT 'user' CHECK (role IN ('User', 'Admin')),
+                avtar JSONB DEFAULT NULL,
+                reset_password_token TEXT DEFAULT NULL,
+                reset_password_expire TIMESTAMP DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+        await database.query(query);
+        console.log("User table created successfully");
         
     } catch (error) {
         console.error("Error creating user table :", error);
